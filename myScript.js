@@ -20,11 +20,11 @@ function playRound (playerSelection, computerSelection) {
             break;
         case "Scissors":
             console.log("You lose! " + computerSelection + " beats " + playerSelection);
-            computerScore++;
+            return(computerScore++);
             break;
         case "Paper":
             console.log("You win! " + playerSelection + " beats " +computerSelection);
-            playerScore++;
+            return(playerScore++);
             break;
         default: 
             console.log("Wrong entry")
@@ -37,11 +37,11 @@ function playRound (playerSelection, computerSelection) {
                 break;
             case "Rock":
                 console.log("You lose! " + computerSelection + " beats " + playerSelection);
-                computerScore++;
+                return(computerScore++);
                 break;
             case "Scissors":
                 console.log("You win! " + playerSelection + " beats " +computerSelection);
-                playerScore++;
+                return(playerScore++);
                 break;
             default:
                 console.log("Wrong entry")
@@ -54,11 +54,11 @@ function playRound (playerSelection, computerSelection) {
                 break;
             case "Paper":
                 console.log("You lose! " + computerSelection + " beats " + playerSelection);
-                computerScore++;
+                return(computerScore++);
                 break;
             case "Rock": 
                 console.log("You win! " + playerSelection + " beats " +computerSelection);
-                playerScore++;
+                return(playerScore++);
                 break;
             default:
                 console.log("Wrong entry")
