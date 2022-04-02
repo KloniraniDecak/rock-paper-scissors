@@ -13,36 +13,80 @@ function playRound (playerSelection, computerSelection) {
     console.log ("You: " + playerSelection)
     console.log("Computer: " + computerSelection);
 
-    if (playerSelection === "rock" && computerSelection === "Rock") {
-        console.log("Draw");
-        } else if (playerSelection === "rock" && computerSelection === "Paper") {
-            console.log("You lose! " + computerSelection + " beats " + playerEnter);
-        } else if (playerSelection === "rock" && computerSelection === "Scissors") {
-            console.log("You win! " + playerEnter + " beats " +computerSelection);  
+    if (computerSelection === "Rock") {
+        switch (playerSelection) {
+        case "Rock":
+            console.log("Draw");
+            break;
+        case "Scissors":
+            console.log("You lose! " + computerSelection + " beats " + playerSelection);
+            computerScore++;
+            break;
+        case "Paper":
+            console.log("You win! " + playerSelection + " beats " +computerSelection);
+            playerScore++;
+            break;
+        default: 
+            console.log("Wrong entry")
+        }
     }
-     else if (playerSelection === "paper" && computerSelection === "Paper") {
-        console.log("Draw");
-        } else if (playerSelection === "paper" && computerSelection === "Scissors") {
-            console.log("You lose! " + computerSelection + " beats " + playerEnter);
-        } else if (playerSelection === "paper" && computerSelection === "Rock") {
-            console.log("You win! " + playerEnter + " beats " +computerSelection);
+     else if (computerSelection === "Paper") {
+        switch (playerSelection) {
+            case "Paper": 
+                console.log("Draw");
+                break;
+            case "Rock":
+                console.log("You lose! " + computerSelection + " beats " + playerSelection);
+                computerScore++;
+                break;
+            case "Scissors":
+                console.log("You win! " + playerSelection + " beats " +computerSelection);
+                playerScore++;
+                break;
+            default:
+                console.log("Wrong entry")
+        }
     }
-     else if (playerSelection === "scissors" && computerSelection === "Scissors") {
-        console.log("Draw");
-        } else if (playerSelection === "scissors" && computerSelection === "Rock") {
-            console.log("You lose! " + computerSelection + " beats " + playerEnter);
-        } else if (playerSelection === "scissors" && computerSelection === "Paper") { 
-            console.log("You win! " + playerEnter + " beats " +computerSelection);
+     else if (computerSelection === "Scissors") {
+        switch (playerSelection) {
+            case "Scissors":
+                console.log("Draw");
+                break;
+            case "Paper":
+                console.log("You lose! " + computerSelection + " beats " + playerSelection);
+                computerScore++;
+                break;
+            case "Rock": 
+                console.log("You win! " + playerSelection + " beats " +computerSelection);
+                playerScore++;
+                break;
+            default:
+                console.log("Wrong entry")
+        }
     }
 }
 
+function game () {
+    console.log("Game of 5 rounds");
+    for (let i = 0; i < 5; i++) {
+        let round = i+1;
+        console.log("Round " + round);
+        let playerSelection = prompt ("Rock, Paper or Scissors?");
+        playerSelection = playerSelection.charAt(0).toUpperCase() + playerSelection.substring(1).toLowerCase();
+        let computerSelection = computerPlay();
+        playRound (playerSelection, computerSelection);
+    }
+    console.log("Final score is: You: " + playerScore + " Computer: " + computerScore);
+    if (playerScore > computerScore) {
+        console.log ("Congratulations! You are the winner!!");
+    } else if (playerScore < computerScore) {
+        console.log ("Sorry, you lose!");
+    } else {
+        console.log("It's a draw");
+    }
+}
 
-let playerEnter = prompt ("Rock, Paper or Scissors?");
-playerSelection = playerEnter.toLowerCase();
-const computerSelection = computerPlay();
+let playerScore = 0;
+let computerScore = 0;
 
-console.log(playerSelection);
-console.log(computerPlay());
-
-console.log(playRound(playerSelection, computerSelection));
-
+game();
