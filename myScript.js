@@ -3,6 +3,7 @@ console.log("Hello World");
 
 let myArray = ['Rock', 'Paper', 'Scissors'];
 
+
 function computerPlay () {
     let computerSelection = Math.floor(Math.random() * myArray.length);
     return (computerSelection, myArray[computerSelection]);
@@ -65,7 +66,7 @@ function playRound (playerSelection, computerSelection) {
         }
     }
 }
-
+/*
 function game () {
     console.log("Game of 5 rounds");
     for (let i = 0; i < 5; i++) {
@@ -90,3 +91,26 @@ let playerScore = 0;
 let computerScore = 0;
 
 game();
+*/
+
+let playerScore = 0;
+let computerScore = 0;
+
+/*
+let playerSelection = prompt ("Rock, Paper or Scissors?");
+playerSelection = playerSelection.charAt(0).toUpperCase() + playerSelection.substring(1).toLowerCase();
+*/
+
+// Pt.2
+
+
+let computerSelection = computerPlay();
+
+const buttons = document.querySelectorAll('button');
+buttons.forEach((button) => {
+    button.addEventListener('click', () => {
+       playerSelection = button.id.valueOf(button.id);
+       playRound (playerSelection, computerSelection);
+      });
+});
+
