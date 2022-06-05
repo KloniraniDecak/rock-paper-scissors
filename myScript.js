@@ -9,7 +9,7 @@ function computerPlay () {
     return (computerSelection, myArray[computerSelection]);
 }
 
-
+/*
 function playRound (playerSelection, computerSelection) {
     console.log ("You: " + playerSelection)
     console.log("Computer: " + computerSelection);
@@ -66,6 +66,8 @@ function playRound (playerSelection, computerSelection) {
         }
     }
 }
+*/
+
 /*
 function game () {
     console.log("Game of 5 rounds");
@@ -103,6 +105,8 @@ playerSelection = playerSelection.charAt(0).toUpperCase() + playerSelection.subs
 
 // Pt.2
 
+let p = document.createElement('p');
+const results = document.getElementById('results');
 
 let computerSelection = computerPlay();
 
@@ -114,3 +118,81 @@ buttons.forEach((button) => {
       });
 });
 
+function playRound (playerSelection, computerSelection) {
+    console.log ("You: " + playerSelection)
+    console.log("Computer: " + computerSelection);
+
+    // p.innerText = 'You: ' + playerSelection;
+    // results.appendChild(p);
+
+    if (computerSelection === "Rock") {
+        switch (playerSelection) {
+            case "Rock":
+                p.innerText = 'Draw';
+                results.appendChild(p);
+                console.log("Draw");
+                break;
+            case "Scissors":
+                p.innerText = 'You lose! ' + computerSelection + ' beats ' + playerSelection;
+                results.appendChild(p);
+                console.log("You lose! " + computerSelection + " beats " + playerSelection);
+                return(computerScore++);
+                break;
+            case "Paper":
+                p.innerText = 'You win! ' + playerSelection + ' beats ' + computerSelection;
+                results.appendChild(p);
+                console.log("You win! " + playerSelection + " beats " +computerSelection);
+                return(playerScore++);
+                break;
+            default: 
+                console.log("Wrong entry")
+        }
+    }
+     else if (computerSelection === "Paper") {
+        switch (playerSelection) {
+            case "Paper": 
+                p.innerText = 'Draw';
+                results.appendChild(p);
+                console.log("Draw");
+                break;
+            case "Rock":
+                p.innerText = 'You lose! ' + computerSelection + ' beats ' + playerSelection;
+                results.appendChild(p);
+                console.log("You lose! " + computerSelection + " beats " + playerSelection);
+                return(computerScore++);
+                break;
+            case "Scissors":
+                p.innerText = 'You win! ' + playerSelection + ' beats ' + computerSelection;
+                results.appendChild(p);
+                console.log("You win! " + playerSelection + " beats " +computerSelection);
+                return(playerScore++);
+                break;
+            default:
+                console.log("Wrong entry")
+        }
+    }
+     else if (computerSelection === "Scissors") {
+        switch (playerSelection) {
+            case "Scissors":
+                p.innerText = 'Draw';
+                results.appendChild(p);
+                console.log("Draw");
+                break;
+            case "Paper":
+                p.innerText = 'You lose! ' + computerSelection + ' beats ' + playerSelection;
+                results.appendChild(p);
+                console.log("You lose! " + computerSelection + " beats " + playerSelection);
+                return(computerScore++);
+                break;
+            case "Rock": 
+                p.innerText = 'You win! ' + playerSelection + ' beats ' + computerSelection;
+                results.appendChild(p);
+                console.log("You win! " + playerSelection + " beats " +computerSelection);
+                return(playerScore++);
+                break;
+            default:
+                console.log("Wrong entry")
+        }
+    }
+    //results.appendChild(p);
+}
